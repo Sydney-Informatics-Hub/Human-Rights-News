@@ -1,0 +1,662 @@
+{
+	"@context": [ "https://w3id.org/ro/crate/1.1/" ],
+	"@graph": [
+		{
+			"@id": "ro-crate-metadata.json",
+			"@type":"CreativeWork",
+			"identifier":"ro-crate-metadata.json",
+			"about":{"@id":"./"},
+			"license":{"@id":"https://creativecommons.org/licenses/by/4.0/"},
+			"conformsTo":{"@id":"https://w3id.org/ro/crate/1.1/"}
+		},
+		{
+			"@id": "./",
+			"@type": "Dataset",
+			"name": "Human Rights in Historical Newspapers",
+			"identifier": [ "#PIPE-5291" ]
+		},
+
+		{
+			"@id": "https://www.proquest.com/hnpguardianobservermag",
+			"@type": "Collection",
+			"name": "ProQuest Historical Newspapers: The Guardian and The Observer (with The Observer Magazine)",
+			"description": "ProQuest historical newspaper database of The Guardian and The Observer",
+			"temporalCoverage": "1791/2003 "
+		},
+
+		{
+			"@id": "https://www.proquest.com/publication/35249",
+			"@type": "Collection",
+			"name": "The Guardian",
+			"description": "ProQuest database of The Guardian 25 Nov 1996-present",
+			"temporalCoverage": "1996-11-25/"
+		},
+
+		{
+			"@id": "https://www.proquest.com/publication/35250",
+			"@type": "Collection",
+			"name": "The Guardian (pre-1997 Fulltext)",
+			"description": "ProQuest database of The Guardian 25 Nov 1996-present",
+			"temporalCoverage": "1992-08-18/1996-12-03"
+		},
+
+		{
+			"@id": "https://www.proquest.com/publication/35251",
+			"@type": "Collection",
+			"name": "The Guardian (1959-2009)",
+			"description": "ProQuest database of The Guardian 24 Aug 1959-May 26 2005",
+			"temporalCoverage": "1959-08-24/2005-05-26"
+		},
+
+		{
+			"@id": "https://www.proquest.com/publication/44261",
+			"@type": "Collection",
+			"name": "The Manchester Guardian (1901-1959)",
+			"description": "ProQuest database of the Manchester Guardian 1 Jan 1901-22 Aug 1959",
+			"temporalCoverage": "1901-01-01/1959-08-22"
+		},
+
+		{
+			"@id": "https://www.proquest.com/publication/54548",
+			"@type": "Collection",
+			"name": "The Manchester Guardian (1828-1900)",
+			"description": "ProQuest database of the Manchester Guardian 8 Mar 1828-31 Dec 1900",
+			"temporalCoverage": "1828-03-08/1900-12-31"
+		},
+
+
+		{
+			"@id": "https://www.proquest.com/publication/45545",
+			"@type": "Collection",
+			"name": "New York Times (1923-)",
+			"description": "ProQuest databse of the New York Times Jan 1, 1923 - Dec 31, 2021",
+			"temporalCoverage": "1923-01-01/2021-12-31"
+
+		},
+
+		{
+			"@id": "https://www.proquest.com/hnpnewyorktimes/",
+			"@type": "Collection",
+			"name": "ProQuest Historical Newspapers: The New York Times",
+			"description": "ProQuest historical newspaper archive of the New York Times 1851-2021",
+			"temporalCoverage": "1851/2021"
+		},
+
+		{
+			"@id": "#guardian_search",
+			"@type": "SearchAction",
+			"name": "Guardian database search",
+			"description": "Database query for Guardian articles",
+			"query": "human rights",
+			"object": [
+				{ "@id": "https://www.proquest.com/publication/35249" },
+				{ "@id": "https://www.proquest.com/publication/35250" },
+				{ "@id": "https://www.proquest.com/publication/35251" },
+				{ "@id": "https://www.proquest.com/publication/44261" },
+				{ "@id": "https://www.proquest.com/publication/54548" }
+			],
+			"result": [
+				{ "@id": "#guardian_historical_articles" },
+				{ "@id": "src/data/guardian/article_metadata.csv" }
+			]
+		},
+
+		{
+			"@id": "#guardian_historical_search",
+			"@type": "SearchAction",
+			"name": "Guardian historical database search",
+			"description": "Database query for Guardian historical articles",
+			"query": "human rights",
+			"object": { "@id": "https://www.proquest.com/hnpguardianobservermag" },
+			"result": [
+				{ "@id": "#guardian_articles" },
+				{ "@id": "src/data/guardian/article_metadata.csv" }
+			]
+		},
+
+
+		{
+			"@id": "#nyt_search",
+			"@type": "SearchAction",
+			"name": "New York Times database search",
+			"description": "Database query for New York Times articles",
+			"query": "human rights",
+			"object": { "@id": "https://www.proquest.com/publication/45545" },
+			"result": [
+				{ "@id": "#nyt_articles" },
+				{ "@id": "src/data/nyt_1/article_metadata.csv" }
+			]
+
+		},
+
+		{
+			"@id": "#nyt_historical_search",
+			"@type": "SearchAction",
+			"name": "New York Times historical database search",
+			"description": "Database query for New York Times historical articles",
+			"query": "human rights",
+			"object": { "@id": "https://www.proquest.com/hnpnewyorktimes/" },
+			"result": [
+				{ "@id": "#nyt_historical_articles" },
+				{ "@id": "src/data/nyt_2/article_metadata.csv" }
+			]
+		},
+
+		{ 
+			"@id": "#guardian_articles",
+			"@type": "Dataset",
+			"name": "Guardian full text article XML",
+			"description": "Collection of XML documents with full text of Guardian articles on TDM Studio" 
+		},
+
+		{ 
+			"@id": "#guardian_historical_articles",
+			"@type": "Dataset",
+			"name": "Guardian full text article XML",
+			"description": "Collection of XML documents with full text of Guardian historical articles on TDM Studio" 
+		},
+
+		{ 
+			"@id": "#nyt_articles",
+			"@type": "Dataset",
+			"name": "New York Times full text article XML",
+			"description": "Collection of XML documents with full text of New York Times articles on TDM Studio" 
+		},
+
+		{ 
+			"@id": "#nyt_historical_articles",
+			"@type": "Dataset",
+			"name": "New York Times full text article XML",
+			"description": "Collection of XML documents with full text of New York Times historical articles on TDM Studio" 
+		},
+
+
+		{ 
+			"@id": "#guardian_nre_results",
+			"@type": "Dataset",
+			"name": "Guardian raw NRE results",
+			"description": "Collection of JSON documents with raw NRE results for Guardian articles on TDM Studio"
+		},
+
+		{ 
+			"@id": "#guardian_historical_nre_results",
+			"@type": "Dataset",
+			"name": "Guardian historical raw NRE results",
+			"description": "Collection of JSON documents with raw NRE results for historical Guardian articles on TDM Studio"
+		},
+
+		{ 
+			"@id": "#nyt_nre_results",
+			"@type": "Dataset",
+			"name": "NYT raw NRE results",
+			"description": "Collection of JSON documents with raw NRE results for NYT articles on TDM Studio"
+		},
+
+		{ 
+			"@id": "#nyt_historical_nre_results",
+			"@type": "Dataset",
+			"name": "NYT historical raw NRE results",
+			"description": "Collection of JSON documents with raw NRE results for historical NYT articles on TDM Studio"
+		},
+
+		{
+			"@id": "https://github.sydney.edu.au/informatics/PIPE-5291-ProQuest-Human-Rights/blob/main/nre.ipynb",
+			"@type": [ "SoftwareSourceCode" ],
+			"name": "nre.ipynb",
+			"description": "Named Entity Recognition notebook",
+			"programmingLanguage": { "@id": "https://www.python.org/downloads/release/python-3110/" }
+		},
+
+		{
+			"@id": "https://github.sydney.edu.au/informatics/PIPE-5291-ProQuest-Human-Rights/blob/main/collate_parquet.ipynb",
+			"@type": [ "SoftwareSourceCode" ],
+			"name": "collate_parquet.ipynb",
+			"description": "NER results collation notebook",
+			"programmingLanguage": { "@id": "https://www.python.org/downloads/release/python-3110/" }
+		},
+		{
+			"@id": "https://github.sydney.edu.au/informatics/PIPE-5291-ProQuest-Human-Rights/blob/main/count_articles.ipynb",
+			"@type": [ "SoftwareSourceCode" ],
+			"name": "count_articles.ipynb",
+			"description": "Article counts notebook",
+			"programmingLanguage": { "@id": "https://www.python.org/downloads/release/python-3110/" }
+		},
+	
+		{
+    			"@id": "src/data/guardian/",
+    			"@type": "Dataset",
+    			"name": "Guardian NRE results",
+    			"description": "Named-entity recognition results and article metadata for the Guardian"
+		},
+
+		{
+    			"@id": "src/data/nyt_1/",
+    			"@type": "Dataset",
+    			"name": "New York Times NRE results, batch 1",
+    			"description": "Named-entity recognition results and article metadata for the New York Times, batch 1"
+		},
+
+		{
+    			"@id": "src/data/nyt_2/",
+    			"@type": "Dataset",
+    			"name": "New York Times NRE results, batch 2",
+    			"description": "Named-entity recognition results and article metadata for the New York Times, batch 1"
+		},
+
+		{
+			"@id": "src/data/preprocess/filter_articles.py",
+			"name": "src/data/preprocess/filter_articles.py",
+			"description": "Main preprocessing script that concatenates NRE parquet files, filters duplicates and unwanted articles",
+			"@type": [ "File", "SoftwareSourceCode" ],
+			"programmingLanguage": { "@id": "https://www.python.org/downloads/release/python-3110/" }
+		},
+
+		{
+			"@id": "src/data/preprocess/deduplicate_metadata.py",
+			"name": "src/data/preprocess/deduplicate_metadata.py",
+			"description": "Preprocesses article metadata to remove duplicates",
+			"@type": [ "File", "SoftwareSourceCode" ],
+			"programmingLanguage": { "@id": "https://www.python.org/downloads/release/python-3110/" }
+		},
+
+		{
+			"@id": "src/data/preprocess/openrefine_csv.py",
+			"name": "src/data/preprocess/openrefine_csv.py",
+			"description": "Preprocessing script to convert entity JSON files from TDM Studio to a CSV file for OpenRefine",
+			"@type": [ "File", "SoftwareSourceCode" ],
+			"programmingLanguage": { "@id": "https://www.python.org/downloads/release/python-3110/" }
+		},
+
+
+		{
+			"@id": "https://github.com/OpenRefine/OpenRefine",
+			"name": "OpenRefine",
+			"description": "OpenRefine is a free, open source power tool for working with messy data and improving it",
+			"@type": [ "SoftwareApplication" ]
+		},
+		{
+			"@id": "src/data/preprocess/entity_maps.py",
+			"name": "src/data/preprocess/entity_maps.py",
+			"description": "Builds complete deduplication maps from OpenRefine CSV files and performs additional data cleaning",
+			"@type": [ "File", "SoftwareSourceCode" ],
+			"programmingLanguage": { "@id": "https://www.python.org/downloads/release/python-3110/" }
+		},
+
+		{
+			"@id": "src/data/config.py",
+			"name": "src/data/config.py",
+			"description": "Configuration file defining data paths, batch directories, and processing parameters",
+			"@type": [ "File", "SoftwareSourceCode" ],
+			"programmingLanguage": { "@id": "https://www.python.org/downloads/release/python-3110/" }
+		},
+
+		{
+			"@id": "src/data/entities.py",
+			"name": "src/data/entities.py",
+			"description": "Library for entity operations including group matching and entity map loading",
+			"@type": [ "File", "SoftwareSourceCode" ],
+			"programmingLanguage": { "@id": "https://www.python.org/downloads/release/python-3110/" }
+		},
+
+		{
+			"@id": "src/data/article.parquet.py",
+			"name": "src/data/article.parquet.py",
+			"description": "Observable data loader for main articles table",
+			"@type": [ "File", "SoftwareSourceCode" ],
+			"programmingLanguage": { "@id": "https://www.python.org/downloads/release/python-3110/" },
+			"runtimePlatform": { "@id": "https://observablehq.com/framework/ "}
+		},
+
+		{
+			"@id": "src/data/entity.parquet.py",
+			"name": "src/data/entity.parquet.py",
+			"description": "Observable data loader that generates entity tables with frequencies and group labels",
+			"@type": [ "File", "SoftwareSourceCode" ],
+			"programmingLanguage": { "@id": "https://www.python.org/downloads/release/python-3110/" },
+			"runtimePlatform": { "@id": "https://observablehq.com/framework/ "}
+		},
+
+		{
+			"@id": "src/data/article-entity.parquet.py",
+			"name": "src/data/article-entity.parquet.py",
+			"description": "Observable data loader that generates article-entity junction tables using entity maps",
+			"@type": [ "File", "SoftwareSourceCode" ],
+			"programmingLanguage": { "@id": "https://www.python.org/downloads/release/python-3110/" },
+			"runtimePlatform": { "@id": "https://observablehq.com/framework/ "}
+		},
+
+		{
+			"@id": "src/data/entity_groups.json.py",
+			"name": "src/data/entity_groups.json.py",
+			"description": "Data loader that builds preset lists of entities as JSON using group matching",
+			"@type": [ "File", "SoftwareSourceCode" ],
+			"programmingLanguage": { "@id": "https://www.python.org/downloads/release/python-3110/" }
+		},
+
+		{
+			"@id": "src/data/totals.json.py",
+			"name": "src/data/totals.json.py",
+			"description": "Generates summary statistics by year from batch directories",
+			"@type": [ "File", "SoftwareSourceCode" ],
+			"programmingLanguage": { "@id": "https://www.python.org/downloads/release/python-3110/" }
+		},
+
+		{
+			"@id": "src/data/",
+			"@type": "Dataset",
+			"name": "Batch Data Directories",
+			"description": "Raw batch directories containing article metadata, NRE parquet files, and entity JSON files from Guardian, NYT2, and NYT_202507"
+		},
+
+		{
+			"@id": "src/data/merged/concat_article_metadata.csv",
+			"name": "concat_article_metadata.csv",
+			"@type": "File",
+			"description": "Concatenated article metadata from all batches"
+		},
+
+		{
+			"@id": "src/data/merged/raw_article_metadata.csv",
+			"name": "raw_article_metadata.csv",
+			"@type": "File",
+			"description": "Deduplicated raw article metadata"
+		},
+
+		{
+			"@id": "src/data/merged/article_metadata.csv",
+			"name": "article_metadata.csv",
+			"@type": "File",
+			"description": "Filtered article metadata with duplicates and unwanted articles removed"
+		},
+
+		{
+			"@id": "src/data/merged/articles_nre_export.parquet",
+			"name": "articles_nre_export.parquet",
+			"description": "Merged and filtered NRE parquet file with named entity recognition results"
+		},
+
+		{
+			"@id": "src/data/merged/removed.csv",
+			"name": "removed.csv",
+			"@type": "File",
+			"description": "Articles that were filtered out during preprocessing with reasons"
+		},
+
+		{
+			"@id": "src/data/merged/geo_entities.json",
+			"name": "geo_entities.json",
+			"description": "Merged geographical entities from all batches"
+		},
+
+		{
+			"@id": "src/data/merged/org_entities.json",
+			"name": "org_entities.json",
+			"description": "Merged organizational entities from all batches"
+		},
+
+		{
+			"@id": "src/data/merged/geo_entities.csv",
+			"name": "geo_entities.csv",
+			"@type": "File",
+			"description": "Cleaned geographical entity mappings from OpenRefine processing"
+		},
+
+		{
+			"@id": "src/data/merged/org_entities.csv",
+			"name": "org_entities.csv",
+			"@type": "File",
+			"description": "Cleaned organizational entity mappings from OpenRefine processing"
+		},
+
+
+                {
+                    	"@id": "#workflow",
+                    	"@type": "Dataset",
+                    	"name": "Data pipeline",
+                    	"description": "Data pipeline",
+                    	"hasPart": [
+                        	{ "@id": "#guardian_search" },
+                        	{ "@id": "#nre_guardian" },
+                        	{ "@id": "#nre_collate_guardian" },
+                        	{ "@id": "" },
+                        	{ "@id": "" },
+                        	{ "@id": "" },
+                        	{ "@id": "" },
+                        	{ "@id": "" },
+                        	{ "@id": "" },
+                        	{ "@id": "" }
+                    	]
+                },
+
+		{
+			"@id": "#guardian_nre",
+			"@type": "CreateAction",
+			"name": "Guardian Named Entity Recognition",
+			"description": "Running NRE for Guardian on TDM Studio",
+			"instrument":
+				{ "@id": "https://github.sydney.edu.au/informatics/PIPE-5291-ProQuest-Human-Rights/blob/main/nre.ipynb"},
+			"object": { "@id": "#guardian_historical_articles" },
+			"result": { "@id": "#guardian_historical_nre_results" }
+		},
+
+		{
+			"@id": "#guardian_collate_nre",
+			"@type": "CreateAction",
+			"name": "Guardian NRE collation",
+			"description": "Collating NRE results for Guardian",
+			"instrument": { "@id": "https://github.sydney.edu.au/informatics/PIPE-5291-ProQuest-Human-Rights/blob/main/collate_parquet.ipynb"},
+			"object": { "@id": "#guardian_nre_results" },
+			"result": [
+    			     { "@id": "src/data/guardian/articles_nre_export.parquet" },
+    			     { "@id": "src/data/guardian/geo_entities.json" },
+    			     { "@id": "src/data/guardian/org_entities.json" }
+			]
+		},
+
+
+		{
+			"@id": "#concatenate_metadata",
+			"@type": "CreateAction",
+			"name": "Concatenate article metadata",
+			"description": "Concatenate the article metadata from each search into a single file.",
+			"instrument": { "@id": "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/cat.html"},
+			"object": [
+    				{ "@id": "src/data/guardian/article_metadata.csv" },
+    				{ "@id": "src/data/nyt_1/article_metadata.csv" },
+    				{ "@id": "src/data/nyt_2/article_metadata.csv" }
+			],
+			"result": { "@id": "src/data/merged/concat_article_metadata.csv" }
+		},
+
+		{
+			"@id": "#deduplicate_metadata",
+			"@type": "CreateAction",
+			"name": "Deduplicate article metadata",
+			"description": "Ensure that the article metadata has only one row for each ProQuest article ID. This is required because some articles appear under the same ID in multiple databases.",
+			"instrument": { "@id": "src/data/preprocess/deduplicate_metadata.py"},
+			"object": { "@id": "src/data/merged/concat_article_metadata.csv" },
+			"result": { "@id": "src/data/merged/raw_article_metadata.csv" }
+			
+		},
+
+		{
+			"@id": "#entities_to_openrefine",
+			"@type": "CreateAction",
+			"name": "Prepare entities for OpenRefine",
+			"description": "Convert raw entity json files exported from TDM Studio to a CSV suitable for importing into OpenRefine.",
+			"instrument": { "@id": "src/data/preprocess/openrefine_csv.py"},
+			"object": [
+    				{ "@id": "src/data/merged/geo_entities.json" },
+    				{ "@id": "src/data/merged/org_entities.json" }
+			],
+			"result": [
+    				{ "@id": "src/data/merged/open_refine/geo_entities.csv" },
+   				{ "@id": "src/data/merged/open_refine/org_entities.csv" }
+			]
+		},
+
+		{
+			"@id": "#entities_to_openrefine",
+			"@type": "CreateAction",
+			"name": "OpenRefine cleaning",
+			"description": "Do manual data cleaning on entity names with OpenRefine and export to CSV. The output CSV has both the original name and the cleaned name. The OpenRefine data cleaning operations are also exported as JSON.",
+			"instrument": { "@id": "https://github.com/OpenRefine/OpenRefine" },
+			"object": [
+    				{ "@id": "src/data/merged/open_refine/geo_entities.csv" },
+   				{ "@id": "src/data/merged/open_refine/org_entities.csv" }
+			],
+			"result": [
+   				{ "@id": "src/data/merged/open_refine/geo_entities_or.csv" },
+    				{ "@id": "src/data/merged/open_refine/org_entities_or.csv" },
+  				{ "@id": "src/data/merged/open_refine/geo_cleaning.json" },
+    				{ "@id": "src/data/merged/open_refine/org_cleaning.json" }
+			]
+		},
+
+		{
+			"@id": "#build_entity_maps",
+			"@type": "CreateAction",
+			"name": "Make entity maps",
+			"description": "Takes the CSV files exported from OpenRefine, does some additional cleaning (folding entities like 'the united states' and 'united states', and writes the final entity map file which goes from raw, uncleaned entities to clean ones. Adds new clean ids as needed.",
+			"instrument": { "@id": "src/data/preprocess_entity_maps.py" },
+			"object": [
+    				{ "@id": "src/data/merged/open_refine/geo_entities_or.csv" },
+   				{ "@id": "src/data/merged/open_refine/org_entities_or.csv" }
+			],
+			"result": [
+				{ "@id": "src/data/merged/geo_entities.csv" },
+				{ "@id": "src/data/merged/org_entities.csv" }
+			]
+		},
+
+
+		{
+			"@id": "#filter_articles",
+			"@type": "CreateAction",
+			"name": "Filter articles",
+			"description": "Merges the exported NRE parquet files, then remove articles which are in categories which shouldn't be counted, or which appear multiple times under different article ids. Writes out the filtered parquet file and metadata CSV, and a CSV file with the reasons for removal of each filtered article.",
+			"instrument": { "@id": "src/data/preprocess/filter_articles.py"},
+			"object": [
+    				{ "@id": "src/data/merged/raw_article_metadata.csv" },
+    			        { "@id": "src/data/guardian/article_nre_export.parquet" },
+    				{ "@id": "src/data/nyt_1/article_nre_export.parquet" },
+    				{ "@id": "src/data/nyt_2/article_nre_export.parquet" }
+			],
+			"result": [
+    			        { "@id": "src/data/merged/article_nre_export.parquet" },
+    				{ "@id": "src/data/merged/article_metadata.csv" },
+    				{ "@id": "src/data/merged/removed.csv" }
+			]
+		},
+
+
+
+
+
+
+
+
+
+
+
+		{
+			"@id": "#nre_nyt_1",
+			"@type": "CreateAction",
+			"name": "NYT Named Entity Recognition",
+			"description": "Running NRE for NYT on TDM Studio",
+			"instrument":
+				{ "@id": "https://github.sydney.edu.au/informatics/PIPE-5291-ProQuest-Human-Rights/blob/main/nre.ipynb"},
+			"object": { "@id": "#nyt_articles" },
+			"result": { "@id": "#nyt_nre_results" }
+		},
+
+		{
+			"@id": "#nre_collate_nyt_1",
+			"@type": "CreateAction",
+			"name": "NYT NRE collation",
+			"description": "Collating NRE results for NYT",
+			"instrument": { "@id": "https://github.sydney.edu.au/informatics/PIPE-5291-ProQuest-Human-Rights/blob/main/collate_parquet.ipynb"},
+			"object": { "@id": "#nyt_nre_results" },
+			"result": [
+    			     { "@id": "src/data/nyt_1/articles_nre_export.parquet" },
+    			     { "@id": "src/data/nyt_1/geo_entities.json" },
+    			     { "@id": "src/data/nyt_1/org_entities.json" }
+			]
+		},
+
+
+		{
+			"@id": "#nre_nyt_2",
+			"@type": "CreateAction",
+			"name": "NYT historical named entity recognition",
+			"description": "Running NRE for NYT Historical on TDM Studio",
+			"instrument":
+				{ "@id": "https://github.sydney.edu.au/informatics/PIPE-5291-ProQuest-Human-Rights/blob/main/nre.ipynb"},
+			"object": { "@id": "#nyt_historical_articles" },
+			"result": { "@id": "#nyt_historical_nre_results" }
+		},
+
+		{
+			"@id": "#nre_collate_nyt_2",
+			"@type": "CreateAction",
+			"name": "NYT NRE collation",
+			"description": "Collating NRE results for NYT",
+			"instrument": { "@id": "https://github.sydney.edu.au/informatics/PIPE-5291-ProQuest-Human-Rights/blob/main/collate_parquet.ipynb"},
+			"object": { "@id": "#nyt_nre_results" },
+			"result": [
+    			     { "@id": "src/data/nyt_2/articles_nre_export.parquet" },
+    			     { "@id": "src/data/nyt_2/geo_entities.json" },
+    			     { "@id": "src/data/nyt_2/org_entities.json" }
+			]
+		},
+
+
+
+
+		{
+			"@id": "#preprocess_action",
+			"@type": "CreateAction",
+			"name": "Data Preprocessing Pipeline",
+			"description": "Main preprocessing workflow that merges, filters, and cleans the data",
+			"instrument": { "@id": "src/data/preprocess.py" },
+			"object": { "@id": "#batch_data" },
+			"result": [
+				{ "@id": "src/data/merged_202507/articles_nre_export.parquet" },
+				{ "@id": "src/data/merged_202507/article_metadata.csv" },
+				{ "@id": "src/data/merged_202507/removed.csv" },
+				{ "@id": "src/data/merged_202507/geo_entities.json" },
+				{ "@id": "src/data/merged_202507/org_entities.json" }
+			]
+		},
+
+		{
+			"@id": "#metadata_preprocess_action",
+			"@type": "CreateAction",
+			"name": "Metadata Deduplication",
+			"description": "Removes duplicate articles from concatenated metadata",
+			"instrument": { "@id": "src/data/metadata_preprocess.py" },
+			"object": { "@id": "src/data/merged_202507/concat_article_metadata.csv" },
+			"result": { "@id": "src/data/merged_202507/raw_article_metadata.csv" }
+		},
+
+
+		{
+			"@id": "#observable_data_loading",
+			"@type": "CreateAction",
+			"name": "Observable Framework Data Loading",
+			"description": "Generates parquet files for Observable Framework visualization",
+			"instrument": [
+				{ "@id": "src/data/articles.parquet.py" },
+				{ "@id": "src/data/entity.parquet.py" },
+				{ "@id": "src/data/article-entity.parquet.py" }
+			],
+			"object": [
+				{ "@id": "src/data/merged_202507/articles_nre_export.parquet" },
+				{ "@id": "src/data/merged_202507/geo_entities.csv" },
+				{ "@id": "src/data/merged_202507/org_entities.csv" }
+			]
+		}
+
+	]
+
+}
